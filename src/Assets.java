@@ -28,7 +28,7 @@ public class Assets {
             new Word("awkward", "Causing or feeling embarrassment or inconvenience."),
             new Word("axiom", "A statement or proposition regarded as self-evidently true."),
             new Word("azure", "A bright blue color like that of a clear sky."),
-            new Word("banjo", "A stringed musical instrument with a round body."),
+            new Word("banjo", "A stringed musical instrument 2with a round body."),
             new Word("blizzard", "A severe snowstorm with high winds."),
             new Word("boggle", "To be astonished or overwhelmed at something."),
             new Word("buffoon", "A person who amuses others by being silly or foolish."),

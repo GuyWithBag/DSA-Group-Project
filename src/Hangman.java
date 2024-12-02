@@ -3,11 +3,11 @@ import java.util.ArrayList;
 public class Hangman {
 
     // Returns lives left
-    public static HangmanResults start(Globals.Difficulty difficulty) {
+    public static HangmanResults start(Globals.Difficulty difficulty, Globals.GameMode gameMode) {
 
         int lives = 6;
         int points = 0;
-        int roundsPlayed = 0;
+        int attempts = 0;
         final ArrayList<Character> guesses = new ArrayList<>();
 
         if (difficulty == Globals.Difficulty.HARD) {
@@ -28,16 +28,30 @@ public class Hangman {
             Sys.outln("\n---------------------------------\nWord Description: \n" + chosenWord.description
                     + "\n-----------------------------\n");
             Sys.outln("\nGuessed Letters: " + String.valueOf(guesses));
-            Sys.out("\nGuess a letter: ");
-            roundsPlayed++;
+            attempts++;
             String input = "";
 
             while (true) {
+                if (gameMode == Globals.GameMode.INFINITE_MODE) {
+                    Sys.outln("Type -1 to End Game");
+                }
+                Sys.out("\nGuess a letter: ");
+
                 input = Sys.in();
+
                 if (!input.isEmpty()) {
                     break;
                 }
+
             }
+
+            if (input.equals("-1")) {
+                Sys.outln("aasdsadsadsadsadsadsa");
+                Game.backToMenu();
+                endGame = true;
+                return new HangmanResults(0, 0, endGame, 0);
+            }
+            Sys.outln(input);
 
             final char guess = input.toLowerCase().charAt(0);
             guesses.add(guess);
@@ -61,11 +75,12 @@ public class Hangman {
 
             if (new String(guessedLetters).indexOf('_') == -1) {
                 Sys.outln("\nYou Won!");
+                points++;
                 endGame = true;
             }
 
         }
 
-        return new HangmanResults(lives, points, endGame, roundsPlayed);
+        return new HangmanResults(lives, points, endGame, attempts);
     }
 }

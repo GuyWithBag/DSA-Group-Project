@@ -2,13 +2,13 @@ public class HangmanResults {
     int livesLeft;
     int points;
     boolean gameEnded = false;
-    int roundsPlayed = 0;
+    int attempts = 0;
 
-    public HangmanResults(int livesLeft, int points, boolean gameEnded, int roundsPlayed) {
+    public HangmanResults(int livesLeft, int points, boolean gameEnded, int attempts) {
         this.livesLeft = livesLeft;
         this.points = points;
         this.gameEnded = gameEnded;
-        this.roundsPlayed = roundsPlayed;
+        this.attempts = attempts;
     }
 
 }

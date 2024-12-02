@@ -12,7 +12,13 @@ public class Globals {
     }
 
     enum GameState {
-        CONTINUE,
+        MENU,
+        GAMEPLAY,
         EXIT
+    }
+
+    enum GameMode {
+        NORMAL,
+        INFINITE_MODE
     }
 }
